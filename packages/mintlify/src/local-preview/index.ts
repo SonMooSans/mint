@@ -54,7 +54,7 @@ const dev = async () => {
   shell.cd(MINT_PATH);
   const gitPullStatus = shellExec("git show").stdout;
   if (
-    gitPullStatus.startsWith("commit 78d764335877932a0dc305d615411dedd18bd18a")
+    gitPullStatus.startsWith("commit 31c9f9374c5f0f2edaf02bb974877706f3c6ff82")
   ) {
     await fse.emptyDir(MINT_PATH);
   }
