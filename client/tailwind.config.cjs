@@ -251,5 +251,6 @@ module.exports = {
     'flex-wrap',
     'border-none',
     'aspect-video',
+    'dark:bg-white'
   ],
 };
