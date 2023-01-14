@@ -19,18 +19,6 @@
       "@/*": ["src/*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "./src/index.d.ts",
-    "**/*.js",
-    "**/*.jsx",
-    "**/*.ts",
-    "**/*.tsx",
-    "next.config.js",
-    "prebuild/index.js",
-    "remark/withImportsInjected.js",
-    "rehype/withLinkRoles.js",
-    "tailwind.config.js"
-  ],
+  "include": ["**/*.js", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

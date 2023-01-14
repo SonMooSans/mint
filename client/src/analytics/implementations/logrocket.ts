@@ -14,7 +14,7 @@ export default class LogrocketAnalytics extends AbstractAnalyticsImplementation 
     if (!implementationConfig.appId || process.env.NODE_ENV !== 'production') {
       return;
     }
-    
+
     try {
       if (!this.initialized && implementationConfig.appId) {
         LogRocket.init(implementationConfig.appId);

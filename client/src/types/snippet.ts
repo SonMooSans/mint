@@ -1,1 +1,4 @@
-export interface Snippet { snippetFileLocation: string; content: string }
+export interface Snippet {
+  snippetFileLocation: string;
+  content: string;
+}

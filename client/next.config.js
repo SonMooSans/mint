@@ -7,7 +7,7 @@ const withBundleAnalyzer = BundleAnalyzer({
 export default withBundleAnalyzer({
   swcMinify: true,
   optimizeFonts: false, // Required so Next Font works on Vercel
-  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx', 'md'],
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   images: {
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",

@@ -105,7 +105,7 @@ export const extractPageMetadata = (
   pageContent: string,
   openApiFiles: OpenApiFile[]
 ) => {
-  let { data: metadata, content } = matter(pageContent);
+  const { data: metadata, content } = matter(pageContent);
 
   // Replace .mdx so we can pass file paths into this function
   const slug = pagePath.replace(/\.mdx?$/, '');

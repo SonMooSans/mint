@@ -38,7 +38,7 @@ export default function SupremePageLayout({
   const { mintConfig, navWithMetadata, pageMetadata, openApiFiles } = pageData;
 
   useProgressBar(mintConfig?.colors?.primary);
-  let [navIsOpen, setNavIsOpen] = useState(false);
+  const [navIsOpen, setNavIsOpen] = useState(false);
   const analyticsConfig = getAnalyticsConfig(mintConfig);
   const analyticsMediator = useAnalytics(analyticsConfig);
 

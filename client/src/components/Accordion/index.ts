@@ -1,4 +1,5 @@
-import Accordion from "./Accordion";
-import { AccordionGroup } from "@mintlify/components";
+import { AccordionGroup } from '@mintlify/components';
 
-export { Accordion, AccordionGroup }
+import Accordion from './Accordion';
+
+export { Accordion, AccordionGroup };

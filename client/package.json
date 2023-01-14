@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "export": "next build && next export",
-    "format": "prettier '{src,remark,scripts}/**/*.{css,js,mdx}' --write",
+    "format": "prettier '**/*.{css,js,ts,tsx,md,mdx}' --write",
+    "format:check": "prettier '**/*.{css,js,ts,tsx,md,mdx}' --check",
+    "lint": "next lint .",
     "test": "jest",
     "dev-watch": "next-remote-watch ./src/_props ./public"
   },
@@ -112,6 +114,7 @@
     "@typescript-eslint/parser": "^5.35.1",
     "babel-eslint": "10.x",
     "eslint": "^8.22.0",
+    "eslint-config-prettier": "^8.6.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-flowtype": "4.x",
     "eslint-plugin-import": "2.x",

@@ -1,4 +1,1 @@
-**/*.mdx
-**/generated/
-src/samples/
-**/snippet.*
+.gitignore

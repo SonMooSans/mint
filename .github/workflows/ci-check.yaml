@@ -1,0 +1,19 @@
+name: CI Check
+
+on: push
+
+defaults:
+  run:
+    working-directory: client
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install modules
+        run: yarn
+      - name: Check formatting
+        run: yarn format:check
+      - name: Check linting
+        run: yarn lint

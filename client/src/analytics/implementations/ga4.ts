@@ -12,7 +12,7 @@ export default class GA4Analytics extends AbstractAnalyticsImplementation {
     if (process.env.NODE_ENV !== 'production') {
       return;
     }
-    
+
     this.measurementId = implementationConfig.measurementId;
   }
 

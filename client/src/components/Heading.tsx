@@ -27,11 +27,11 @@ export function Heading({
   nextElementDepth = -1,
   ...props
 }: HeadingProps | any) {
-  let Component = `h${level}`;
+  const Component = `h${level}`;
   const context: any = useContext(ContentsContext);
   const [rect, setRect] = useState<Rect | null>(null);
   const [rectRef] = useRect(setRect);
-  let top = useTop(rect);
+  const top = useTop(rect);
 
   // We cannot include context in the dependency array because it changes every render.
   const hasContext = Boolean(context);

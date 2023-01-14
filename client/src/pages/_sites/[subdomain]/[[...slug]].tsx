@@ -75,7 +75,7 @@ export const getStaticProps: GetStaticProps<PageProps, PathProps> = async ({ par
   }
 
   if (status === 200) {
-    let {
+    const {
       content,
       mintConfig,
       navWithMetadata,

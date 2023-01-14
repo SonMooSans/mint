@@ -1,4 +1,5 @@
 import Script from 'next/script';
+
 import { PlausibleInterface } from './AbstractAnalyticsImplementation';
 
 export default function PlausibleScript({ plausible }: { plausible?: PlausibleInterface }) {
@@ -7,6 +8,10 @@ export default function PlausibleScript({ plausible }: { plausible?: PlausibleIn
   }
 
   return (
-    <Script strategy="afterInteractive" data-domain={plausible.domain} src="https://plausible.io/js/script.js" />
+    <Script
+      strategy="afterInteractive"
+      data-domain={plausible.domain}
+      src="https://plausible.io/js/script.js"
+    />
   );
 }

@@ -1,5 +1,6 @@
-import Intercom from '@/integrations/Intercom';
 import { useIntercom } from 'react-use-intercom';
+
+import Intercom from '@/integrations/Intercom';
 
 export function ErrorPage() {
   const { boot, show } = useIntercom();
@@ -7,8 +8,7 @@ export function ErrorPage() {
   const onBootIntercom = async () => {
     await boot();
     await show();
-  }
-
+  };
 
   return (
     <main className="h-screen dark:bg-[#0f1117]">
@@ -19,7 +19,14 @@ export function ErrorPage() {
           </span>
           <h1 className="font-semibold mb-3 text-3xl">Well this is embarrassing…</h1>
           <p className="text-lg text-slate-500 dark:text-slate-400 mb-6">
-            We can't find the page you are looking for. Please <button onClick={onBootIntercom} className="font-medium text-slate-700 dark:text-gray-100 border-b hover:border-b-[2px] border-[#2AB673] dark:border-[#117866]">contact support</button> to get help.
+            We can't find the page you are looking for. Please{' '}
+            <button
+              onClick={onBootIntercom}
+              className="font-medium text-slate-700 dark:text-gray-100 border-b hover:border-b-[2px] border-[#2AB673] dark:border-[#117866]"
+            >
+              contact support
+            </button>{' '}
+            to get help.
           </p>
         </div>
       </article>

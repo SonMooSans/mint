@@ -3,7 +3,7 @@ import visit from 'unist-util-visit';
 
 const withCodeBlocks = () => {
   return (tree: Root) => {
-    let preTree = { children: [] };
+    const preTree = { children: [] };
 
     visit(tree, 'element', (node: any, i: number, parent: any) => {
       if (node?.tagName !== 'pre') return node;

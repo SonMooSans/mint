@@ -1,13 +1,9 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const defaultTheme = require('tailwindcss/defaultTheme');
 const { default: flattenColorPalette } = require('tailwindcss/lib/util/flattenColorPalette');
 
 module.exports = {
-  content: [
-    './src/**/*.{js,jsx,ts,tsx,mdx,html}',
-    './remark/**/*.js',
-    './rehype/**/*.js',
-    './src/mint.json',
-  ],
+  content: ['./src/**/*.{tsx,mdx}'],
   darkMode: 'class',
   theme: {
     screens: {

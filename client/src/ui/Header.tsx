@@ -26,7 +26,7 @@ export function NavPopover({
   display: string;
   className: string;
 }) {
-  let [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     if (!isOpen) return;

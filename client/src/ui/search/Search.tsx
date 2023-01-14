@@ -407,9 +407,9 @@ export function SearchProvider({ subdomain, children }: { subdomain?: string; ch
 }
 
 export function SearchButton({ children, ...props }: any) {
-  let searchButtonRef = useRef();
-  let actionKey = useActionKey();
-  let { onOpen, onInput } = useContext(SearchContext) as any;
+  const searchButtonRef = useRef();
+  const actionKey = useActionKey();
+  const { onOpen, onInput } = useContext(SearchContext) as any;
 
   useEffect(() => {
     function onKeyDown(event: any) {

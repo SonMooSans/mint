@@ -50,7 +50,7 @@ export function MDXContentController({
 
   const { currentTableOfContentsSection, registerHeading, unregisterHeading } =
     useTableOfContents(toc);
-  let { prev, next } = usePrevNext();
+  const { prev, next } = usePrevNext();
 
   const openApiPlaygroundProps = getOpenApiPlaygroundProps(
     apiBaseIndex,

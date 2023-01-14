@@ -19,7 +19,7 @@ type SocialProps = {
 };
 
 const Social = ({ type, url }: SocialProps) => {
-  let icon = type === 'website' || type == null ? 'earth-americas' : type;
+  const icon = type === 'website' || type == null ? 'earth-americas' : type;
   if (
     icon !== 'earth-americas' &&
     icon !== 'discord' &&

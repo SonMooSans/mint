@@ -5,8 +5,8 @@ import { SidebarContext } from '@/layouts/NavSidebar';
 import { TableOfContentsSection } from '@/types/tableOfContentsSection';
 
 export function TableOfContents({ tableOfContents, currentSection, meta }: any) {
-  let sidebarContext = useContext(SidebarContext);
-  let isMainNav = Boolean(sidebarContext);
+  const sidebarContext = useContext(SidebarContext);
+  const isMainNav = Boolean(sidebarContext);
 
   function closeNav() {
     if (isMainNav && sidebarContext) {
@@ -24,7 +24,7 @@ export function TableOfContents({ tableOfContents, currentSection, meta }: any) 
     return section.children.findIndex(isActive) > -1;
   }
 
-  let pageHasSubsections = tableOfContents.some(
+  const pageHasSubsections = tableOfContents.some(
     (section: TableOfContentsSection) => section.children.length > 0
   );
 
