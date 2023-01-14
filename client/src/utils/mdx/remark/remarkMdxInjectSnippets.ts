@@ -19,7 +19,7 @@ const remarkMdxInjectSnippets = (snippetTreeMap: Record<string, Root>) => {
           const name = fileAttr?.value;
           if (typeof name === 'string') {
             if (Object.hasOwn(snippetTreeMap, name)) {
-              const fragment = removePosition(snippetTreeMap[name]);
+              const fragment = removePosition(structuredClone(snippetTreeMap[name]));
               parent.children.splice(index, 1, ...fragment.children);
               return [SKIP, index];
             } else {
