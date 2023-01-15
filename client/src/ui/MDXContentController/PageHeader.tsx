@@ -37,8 +37,8 @@ export function BlogHeader({ pageMetadata }: { pageMetadata: PageMetaTags }) {
         <p className="mt-2 text-lg text-slate-700 dark:text-slate-400">{description}</p>
       )}
       <div className="mt-4 flex space-x-5">
-        {pageMetadata.authors?.map((author: any) => (
-          <AuthorProfile name={author.name} image={author.image} />
+        {pageMetadata.authors?.map((author: any, i: number) => (
+          <AuthorProfile key={i} name={author.name} image={author.image} />
         ))}
       </div>
     </header>

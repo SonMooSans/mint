@@ -19,7 +19,7 @@ export function ErrorPage() {
           </span>
           <h1 className="font-semibold mb-3 text-3xl">Well this is embarrassing…</h1>
           <p className="text-lg text-slate-500 dark:text-slate-400 mb-6">
-            We can't find the page you are looking for. Please{' '}
+            We can&apos;t find the page you are looking for. Please{' '}
             <button
               onClick={onBootIntercom}
               className="font-medium text-slate-700 dark:text-gray-100 border-b hover:border-b-[2px] border-[#2AB673] dark:border-[#117866]"

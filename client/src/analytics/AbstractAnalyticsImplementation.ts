@@ -59,9 +59,13 @@ export abstract class AbstractAnalyticsImplementation {
   // New implementations need their own config interface.
   abstract init(implementationConfig: ConfigInterface): void;
   createEventListener(eventName: string): (eventProperties: object) => Promise<void> {
-    return async function doNothing(_: object) {};
+    return async function doNothing(_: object) {
+      return;
+    };
   }
-  onRouteChange(url: string, routeProps: any): void {}
+  onRouteChange(url: string, routeProps: any): void {
+    return;
+  }
 }
 
 export type AnalyticsMediatorInterface = {

@@ -33,6 +33,8 @@ export default class LogrocketAnalytics extends AbstractAnalyticsImplementation 
         trackEvent(eventName, eventProperties);
       };
     }
-    return async function doNothing(_: object) {};
+    return async function doNothing(_: object) {
+      return;
+    };
   }
 }

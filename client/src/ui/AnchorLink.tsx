@@ -19,52 +19,50 @@ type TopLevelProps = {
   as?: string;
 };
 
-const Anchor = forwardRef(
-  ({ children, href, icon, isActive, onClick, color }: TopLevelProps, ref: ForwardedRef<any>) => {
-    const [hovering, setHovering] = useState(false);
-    const usePrimaryColorForText = color == null || color.includes('linear-gradient');
+const Anchor = forwardRef(function AnchorWithRef(
+  { children, href, icon, isActive, onClick, color }: TopLevelProps,
+  ref: ForwardedRef<any>
+) {
+  const [hovering, setHovering] = useState(false);
+  const usePrimaryColorForText = color == null || color.includes('linear-gradient');
 
-    return (
-      <DynamicLink
-        ref={ref}
-        href={href}
-        onClick={onClick}
-        onMouseEnter={() => setHovering(true)}
-        onMouseLeave={() => setHovering(false)}
-        style={isActive && !usePrimaryColorForText ? { color: color } : {}}
+  return (
+    <DynamicLink
+      ref={ref}
+      href={href}
+      onClick={onClick}
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}
+      style={isActive && !usePrimaryColorForText ? { color: color } : {}}
+      className={clsx(
+        'group flex items-center lg:text-sm lg:leading-6 mb-5 sm:mb-4',
+        isActive
+          ? ['font-semibold', usePrimaryColorForText ? 'text-primary dark:text-primary-light' : '']
+          : 'font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300'
+      )}
+    >
+      <div
+        style={
+          (isActive || hovering) && color
+            ? {
+                background: color,
+              }
+            : {}
+        }
         className={clsx(
-          'group flex items-center lg:text-sm lg:leading-6 mb-5 sm:mb-4',
+          'mr-4 rounded-md p-1',
+          !color && 'group-hover:bg-primary',
           isActive
-            ? [
-                'font-semibold',
-                usePrimaryColorForText ? 'text-primary dark:text-primary-light' : '',
-              ]
-            : 'font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300'
+            ? [color ? '' : 'bg-primary']
+            : 'zinc-box group-hover:brightness-100 group-hover:ring-0 ring-1 ring-zinc-400/25 dark:ring-zinc-700/40'
         )}
       >
-        <div
-          style={
-            (isActive || hovering) && color
-              ? {
-                  background: color,
-                }
-              : {}
-          }
-          className={clsx(
-            'mr-4 rounded-md p-1',
-            !color && 'group-hover:bg-primary',
-            isActive
-              ? [color ? '' : 'bg-primary']
-              : 'zinc-box group-hover:brightness-100 group-hover:ring-0 ring-1 ring-zinc-400/25 dark:ring-zinc-700/40'
-          )}
-        >
-          {icon}
-        </div>
-        {children}
-      </DynamicLink>
-    );
-  }
-);
+        {icon}
+      </div>
+      {children}
+    </DynamicLink>
+  );
+});
 
 export function StyledAnchorLink({
   href,

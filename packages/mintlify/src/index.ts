@@ -2,7 +2,6 @@
 
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
-import generatePageTemplate from "./pageTemplate.js";
 import {
   scrapePageAutomatically,
   scrapePageWrapper,
@@ -18,7 +17,6 @@ import { scrapeReadMeSection } from "./scraping/site-scrapers/scrapeReadMeSectio
 import dev from "./local-preview/index.js";
 import installDepsCommand from "./local-preview/helper-commands/installDepsCommand.js";
 
-// TODO - add descriptions to the command options https://github.com/yargs/yargs/blob/HEAD/docs/api.md#commandmodule
 yargs(hideBin(process.argv))
   .command(
     "dev",
@@ -34,7 +32,6 @@ yargs(hideBin(process.argv))
     () => {},
     installDepsCommand
   )
-  .command("page", "Generate a new page", () => {}, generatePageTemplate)
   .command(
     "scrape-page [url]",
     "Scrapes a page",
@@ -83,5 +80,15 @@ yargs(hideBin(process.argv))
       await scrapeSectionAxiosWrapper(argv, scrapeReadMeSection);
     }
   )
+
+  // Print the help menu when the user enters an invalid command.
+  .demandCommand(
+    1,
+    "Unknown command. See above for the list of supported commands."
+  )
+
+  // Alias option flags --help = -h, --version = -v
+  .alias("h", "help")
+  .alias("v", "version")
 
   .parse();

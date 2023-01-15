@@ -4,8 +4,14 @@ import { createContext, useContext } from 'react';
 import { ConfigContext } from '@/context/ConfigContext';
 import { useCurrentPath } from '@/hooks/useCurrentPath';
 
-// @ts-ignore
-const FeedbackContext = createContext();
+const FeedbackContext = createContext({
+  createSuggestHref: (path: string) => {
+    return `https://server.mintlify.com/api/v1/app/suggest/?path=${path}.mdx`;
+  },
+  createIssueHref: (path: string) => {
+    return `https://server.mintlify.com/api/v1/app/issue/?path=${path}.mdx`;
+  },
+});
 
 const FeedbackTooltip = ({ message }: { message: string }) => {
   return (
@@ -37,7 +43,7 @@ const FeedbackTooltip = ({ message }: { message: string }) => {
 export function UserFeedback() {
   const path = useCurrentPath();
   const { mintConfig } = useContext(ConfigContext);
-  const { createSuggestHref, createIssueHref } = useContext(FeedbackContext) as any;
+  const { createSuggestHref, createIssueHref } = useContext(FeedbackContext);
 
   if (mintConfig?.hideFeedbackButtons === true) {
     return null;

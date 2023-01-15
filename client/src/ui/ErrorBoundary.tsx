@@ -13,7 +13,7 @@ class ErrorBoundary extends React.Component<any, { hasError: boolean }> {
   }
   render() {
     if (this.state?.hasError) {
-      return <div>Oops, there's an error</div>;
+      return <div>Oops, there&apos;s an error</div>;
     }
     return this.props.children;
   }

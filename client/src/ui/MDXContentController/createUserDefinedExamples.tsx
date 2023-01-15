@@ -22,32 +22,30 @@ export function createUserDefinedExamples(apiComponents: ApiComponent[]) {
   // Create Request Example
   if (requestComponentSkeleton) {
     output.requestExample = (
-      <CodeGroup
-        isSmallText
-        children={requestComponentSkeleton.children.map((child, i) => {
+      <CodeGroup isSmallText>
+        {requestComponentSkeleton.children.map((child, i) => {
           return (
             <CodeBlock filename={child.filename} key={child.filename + i}>
               {htmlToReactComponent(child.html)}
             </CodeBlock>
           );
         })}
-      />
+      </CodeGroup>
     );
   }
 
   // Create ResponseExample
   if (responseComponentSkeleton) {
     output.responseExample = (
-      <CodeGroup
-        isSmallText
-        children={responseComponentSkeleton.children.map((child, i) => {
+      <CodeGroup isSmallText>
+        {responseComponentSkeleton.children.map((child, i) => {
           return (
             <CodeBlock filename={child.filename} key={child.filename + i}>
               {htmlToReactComponent(child.html)}
             </CodeBlock>
           );
         })}
-      />
+      </CodeGroup>
     );
   }
 

@@ -17,6 +17,7 @@ export default function GA4Script({ ga4 }: { ga4?: GoogleAnalyticsConfigInterfac
       />
       <Script
         strategy="afterInteractive"
+        id="ga4"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];

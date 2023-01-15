@@ -41,7 +41,7 @@ const getPlaceholderFromObjectOrString = (value: any): undefined => {
   return (typeof value === 'string' && value) || value?.value?.toString();
 };
 
-const removeEmpty = (obj?: Object) => {
+const removeEmpty = (obj?: object) => {
   if (!obj) return obj;
 
   return Object.fromEntries(Object.entries(obj).filter(([_, v]) => v || v === false));
@@ -61,7 +61,7 @@ const potentiallAddPathParams = (inputUrl: string, inputData: Record<string, any
   return url;
 };
 
-const getBody = (obj: Object, _: string) => {
+const getBody = (obj: object, _: string) => {
   // TODO: Add support for files in getBody with multipart/form-data
   // if (contentType === 'multipart/form-data') {
   //   let cleanedObj = removeEmpty(obj);
@@ -86,7 +86,7 @@ export const getApiContext = (
   inputData: Record<string, any>,
   contentType: string,
   apiConfig?: ApiConfig
-): { url: string; body?: Object; params?: Object; headers?: AxiosRequestHeaders } => {
+): { url: string; body?: object; params?: object; headers?: AxiosRequestHeaders } => {
   const endpoint = `${apiBase}${path}`;
   const url = potentiallAddPathParams(endpoint, inputData);
   const body = getBody(inputData.Body, contentType);
@@ -96,7 +96,8 @@ export const getApiContext = (
   if (inputData.Authorization) {
     const authEntires = Object.entries(inputData.Authorization);
     if (apiConfig?.auth?.method === 'basic' && authEntires.length === 2) {
-      let [[usernameField, username], [, password]]: any = authEntires;
+      const usernameField = authEntires[0][0];
+      let [[, username], [, password]] = authEntires;
       // Get order based on username:password
       if (
         (apiConfig?.auth.name && apiConfig?.auth.name.split(':')[0] !== usernameField) ||

@@ -14,7 +14,7 @@ const listener = () => {
   chokidar
     .watch(CMD_EXEC_PATH, {
       ignoreInitial: true,
-      ignored: ["node_modules", ".git"],
+      ignored: ["node_modules", ".git", ".idea"],
       cwd: CMD_EXEC_PATH,
     })
     .on("all", async (event, filename) => {

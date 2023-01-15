@@ -1,7 +1,7 @@
 import Prism from 'prismjs';
 import 'prismjs/components/prism-json';
 
-export const jsonSyntaxHighlight = (json: Object) => {
+export const jsonSyntaxHighlight = (json: object) => {
   if (json == null) {
     return null;
   }

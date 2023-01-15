@@ -12,7 +12,7 @@ type HeadingProps = {
   className?: string;
   hidden?: boolean;
   ignore?: boolean;
-  style?: Object;
+  style?: object;
   nextElementDepth?: number | string;
 };
 

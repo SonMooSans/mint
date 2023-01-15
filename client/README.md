@@ -1,6 +1,6 @@
 # Mintlify Client
 
-The client is essentially a frontend template used to host documentation. In production, when `yarn prebuild` is ran it fetches all the relevant assets (the config file, the content (mdx files), and static assets) and plugs them into the appropriate locations before building.
+The client is essentially a frontend template used to host documentation.
 
 ## Your First Code Contribution
 
@@ -32,17 +32,21 @@ Use the debugger to place breakpoints in your code to see your variable values. 
 
 [Read more about debugging in VS Code](https://code.visualstudio.com/docs/editor/debugging)
 
-### Formatting
+### Code Quality
 
-This project uses [prettier](https://prettier.io/) for code formatting. You can run prettier across the code by calling `yarn run format` from a terminal.
+#### Formatting
+
+This project uses [prettier](https://prettier.io/) for code formatting. You can auto-format across the codebase by running `yarn format`.
 
 To format the code as you make changes you can install the [Prettier - Code formatter](https://marketplace.visualstudio.com/items/esbenp.prettier-vscode) extension.
 
-Add the following to your User Settings to run prettier:
+Add the following to your User Settings to run prettier on save:
 
 ```
 "editor.formatOnSave": true,
 "editor.defaultFormatter": "esbenp.prettier-vscode"
 ```
 
-You can either modify the `settings.json` file or click on Preferences > Settings to use the UI.
+#### Linting
+
+This project uses [eslint](https://eslint.org/) for code linting. You can check linter warnings and errors by running `yarn lint`.

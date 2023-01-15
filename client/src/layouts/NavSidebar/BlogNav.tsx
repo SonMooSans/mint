@@ -1,7 +1,9 @@
+import Link from 'next/link';
+
 export function BlogNav() {
   return (
     <>
-      <a
+      <Link
         className="mt-9 group flex font-semibold text-sm leading-6 text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-white"
         href="/blog"
       >
@@ -19,7 +21,7 @@ export function BlogNav() {
           ></path>
         </svg>
         See more posts
-      </a>
+      </Link>
     </>
   );
 }

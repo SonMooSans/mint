@@ -30,4 +30,4 @@ We mount the user's directory during local development so documentation changes 
 
 ## Trying to self-host Mintlify?
 
-Install our CLI: `npm i mintlify`
+Install our CLI: `npm i -g mintlify`

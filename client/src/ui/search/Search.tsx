@@ -25,8 +25,23 @@ import { HitLocation } from './HitLocation';
 const client = algoliasearch('M6VUKXZ4U5', '60f283c4bc8c9feb5c44da3df3c21ce3');
 const index = client.initIndex('docs');
 
-// @ts-ignore
-const SearchContext = createContext();
+type SearchInput = {
+  key: string;
+};
+
+const SearchContext = createContext({
+  isOpen: false,
+  onOpen: () => {
+    return;
+  },
+  onClose: () => {
+    return;
+  },
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  onInput: (e: SearchInput) => {
+    return;
+  },
+});
 
 type HighlightedResult = { value: string; matchLevel: 'none' | 'full' };
 
@@ -249,7 +264,7 @@ export function SearchProvider({ subdomain, children }: { subdomain?: string; ch
   }, [setIsOpen]);
 
   const onInput = useCallback(
-    (e: any) => {
+    (e: SearchInput) => {
       setIsOpen(true);
       setQuery(e.key);
     },
@@ -391,7 +406,7 @@ export function SearchProvider({ subdomain, children }: { subdomain?: string; ch
                           className="mx-auto h-6 w-6 bg-slate-900 dark:bg-slate-400 opacity-40"
                         />
                         <p className="mt-4 text-sm text-slate-900 dark:text-slate-400">
-                          We couldn't find any projects with that term. Please try again.
+                          We couldn&apos;t find any projects with that term. Please try again.
                         </p>
                       </div>
                     )}
@@ -409,7 +424,7 @@ export function SearchProvider({ subdomain, children }: { subdomain?: string; ch
 export function SearchButton({ children, ...props }: any) {
   const searchButtonRef = useRef();
   const actionKey = useActionKey();
-  const { onOpen, onInput } = useContext(SearchContext) as any;
+  const { onOpen, onInput } = useContext(SearchContext);
 
   useEffect(() => {
     function onKeyDown(event: any) {

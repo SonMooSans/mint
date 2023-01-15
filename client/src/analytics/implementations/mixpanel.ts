@@ -37,7 +37,9 @@ export default class MixpanelAnalytics extends AbstractAnalyticsImplementation {
         });
     } else {
       // Stop storing events, we don't need them because the library will not be loaded.
-      this.mixpanel.track = (_name: string, _properties: object) => {};
+      this.mixpanel.track = (_name: string, _properties: object) => {
+        return;
+      };
     }
   }
 

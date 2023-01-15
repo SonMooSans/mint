@@ -9,7 +9,9 @@ export default class PirschAnalytics extends AbstractAnalyticsImplementation {
   // Store events to submit after the library is loaded.
   waitTracking: any[][] = [];
   pirsch = {
-    hit: () => {},
+    hit: () => {
+      return;
+    },
     event: (name: string, eventProperties: object) =>
       this.waitTracking.push([name, eventProperties]),
   } as any;

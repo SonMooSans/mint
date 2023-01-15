@@ -7,7 +7,9 @@ export type VersionInterface = {
 
 export const VersionContext = createContext({
   selectedVersion: '',
-  setSelectedVersion: () => {},
+  setSelectedVersion: () => {
+    return;
+  },
 } as VersionInterface);
 
 export function VersionContextController({

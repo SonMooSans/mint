@@ -34,6 +34,8 @@ export default class PostHogAnalytics extends AbstractAnalyticsImplementation {
         posthog.capture(eventName, eventProperties);
       };
     }
-    return async function doNothing(_: object) {};
+    return async function doNothing(_: object) {
+      return;
+    };
   }
 }

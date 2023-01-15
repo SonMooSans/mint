@@ -24,58 +24,56 @@ const getPaddingByLevel = (level: number) => {
   }
 };
 
-const NavItem = forwardRef(
-  (
-    {
-      groupPage,
-      level = 0,
-      mobile = false,
-    }: { groupPage: GroupPage | undefined; level?: number; mobile?: boolean },
-    ref: any
-  ) => {
-    const currentPath = useCurrentPath();
+const NavItem = forwardRef(function NavItemWithRef(
+  {
+    groupPage,
+    level = 0,
+    mobile = false,
+  }: { groupPage: GroupPage | undefined; level?: number; mobile?: boolean },
+  ref: any
+) {
+  const currentPath = useCurrentPath();
 
-    if (groupPage == null) {
-      return null;
-    }
-
-    if (isGroup(groupPage)) {
-      return <GroupDropdown group={groupPage} level={level} mobile={mobile} />;
-    }
-
-    const { href, api: pageApi, openapi } = groupPage;
-
-    const isActive = isEqualIgnoringLeadingSlash(groupPage.href, currentPath);
-
-    const endpointStr = pageApi || openapi;
-    const title = groupPage.sidebarTitle || groupPage.title || slugToTitle(href || '');
-
-    return (
-      <li ref={ref}>
-        <Link
-          href={href || '/'}
-          className={clsx(
-            'flex border-l -ml-px',
-            isActive
-              ? 'text-primary border-current font-semibold dark:text-primary-light'
-              : 'border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300',
-            getPaddingByLevel(level)
-          )}
-        >
-          {endpointStr && groupPage?.hideApiMarker !== true && (
-            <div
-              className={clsx('mt-[0.5rem] mr-2 h-2 w-2 rounded-sm', {
-                'bg-primary dark:bg-primary-light': isActive,
-                [getMethodDotsColor(extractMethodAndEndpoint(endpointStr).method)]: !isActive,
-              })}
-            />
-          )}
-          <div className="flex-1">{title}</div>
-        </Link>
-      </li>
-    );
+  if (groupPage == null) {
+    return null;
   }
-);
+
+  if (isGroup(groupPage)) {
+    return <GroupDropdown group={groupPage} level={level} mobile={mobile} />;
+  }
+
+  const { href, api: pageApi, openapi } = groupPage;
+
+  const isActive = isEqualIgnoringLeadingSlash(groupPage.href, currentPath);
+
+  const endpointStr = pageApi || openapi;
+  const title = groupPage.sidebarTitle || groupPage.title || slugToTitle(href || '');
+
+  return (
+    <li ref={ref}>
+      <Link
+        href={href || '/'}
+        className={clsx(
+          'flex border-l -ml-px',
+          isActive
+            ? 'text-primary border-current font-semibold dark:text-primary-light'
+            : 'border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300',
+          getPaddingByLevel(level)
+        )}
+      >
+        {endpointStr && groupPage?.hideApiMarker !== true && (
+          <div
+            className={clsx('mt-[0.5rem] mr-2 h-2 w-2 rounded-sm', {
+              'bg-primary dark:bg-primary-light': isActive,
+              [getMethodDotsColor(extractMethodAndEndpoint(endpointStr).method)]: !isActive,
+            })}
+          />
+        )}
+        <div className="flex-1">{title}</div>
+      </Link>
+    </li>
+  );
+});
 
 const GroupDropdown = ({
   group,

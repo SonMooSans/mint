@@ -92,6 +92,7 @@ export default function SupremePageLayout({
               ))}
             </Head>
             <Script
+              id="dark-mode-toggle"
               strategy="beforeInteractive"
               dangerouslySetInnerHTML={{
                 __html: `

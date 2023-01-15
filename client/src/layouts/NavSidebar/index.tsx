@@ -20,7 +20,9 @@ type SidebarContextType = {
 
 export const SidebarContext = createContext<SidebarContextType>({
   navIsOpen: false,
-  setNavIsOpen: () => {},
+  setNavIsOpen: () => {
+    return;
+  },
 });
 
 function Wrapper({

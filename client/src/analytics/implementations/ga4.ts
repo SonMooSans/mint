@@ -22,7 +22,9 @@ export default class GA4Analytics extends AbstractAnalyticsImplementation {
         (window as any).gtag('event', eventName, {});
       };
     }
-    return async function doNothing(_: object) {};
+    return async function doNothing(_: object) {
+      return;
+    };
   }
 
   onRouteChange(url: string): void {

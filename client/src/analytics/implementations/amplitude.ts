@@ -32,7 +32,9 @@ export default class AmplitudeAnalytics extends AbstractAnalyticsImplementation 
       };
       return func.bind(this);
     }
-    return async function doNothing(_: object) {};
+    return async function doNothing(_: object) {
+      return;
+    };
   }
 
   onRouteChange(url: string, routeProps: any) {

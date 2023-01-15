@@ -57,7 +57,7 @@ function ExpandableFields({ schema }: any) {
     return (
       <Tabs>
         {schema.anyOf.map((schema: any, i: number) => (
-          <Tab title={`${i + 1}`}>
+          <Tab key={`${i + 1}`} title={`${i + 1}`}>
             {/* TODO: Explore whether properties can be assumed */}
             <ExpandableFields schema={{ properties: schema }} />
           </Tab>
@@ -237,6 +237,7 @@ export function OpenApiParameters({ endpointStr }: OpenApiContentProps) {
       apiComponents.push(paramField);
       return (
         <ParamField
+          key={i}
           body={property}
           required={required}
           type={type}
