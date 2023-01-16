@@ -1,43 +1,24 @@
 ---
-title: "Playground"
-description: "Enable users interact with your API"
-api: "GET https://server.mintlify.com/api/v1/demo"
-hideApiMarker: true
+title: "Configuration"
+description: "Set up documentation for your API endpoints"
 ---
-
-<ParamField query="message" type="string" required>
-  The message to be used in the query
-</ParamField>
-
-<ResponseExample>
-  ```json Example Response
-  {
-    "success": true,
-    "message": "Hello world"
-  }
-  ```
-</ResponseExample>
-
-## Introduction
-
-The API playground lets you create an interactive environment to make requests and preview your API endpoints.
 
 ## Setting the API metadata
 
-Set the `api` field in the page's metadata to automatically enable the API playground.
+Setting the `api` field in the page's metadata will enable the [API playground](/api-components/playground).
 
 <CodeGroup>
 
 ```md Example
 ---
-title: Create new user
-api: POST https://api.mintlify.com/user
+title: "Create new user"
+api: "POST https://api.mintlify.com/user"
 ---
 ```
 
 ```md Format
 ---
-title: '...'
+title: [title of the page]
 api: [method] [endpoint]
 ---
 ```
@@ -46,7 +27,7 @@ api: [method] [endpoint]
 
 ### Method
 
-Can be any one of the following REST API methods
+This can be any one of the following REST API methods:
 
 | Method   | Description                                      |
 | -------- | ------------------------------------------------ |
@@ -72,4 +53,8 @@ If you have `baseUrl` configured in [mint.json](/settings/global), you can use r
 
 ## OpenAPI
 
-Mintlify also supports OpenAPI and Swagger files. Learn more at the [OpenAPI guide](/api-components/openapi).
+Mintlify also supports OpenAPI and Swagger files.
+
+<Snippet file="api-components/openapi.mdx" />
+
+Learn more at the [OpenAPI guide](/api-components/openapi).

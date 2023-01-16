@@ -88,6 +88,8 @@ export function MDXContentController({
   // TODO - make this undefined when nothing exists
   const api = openApiPlaygroundProps.api ?? pageMetadata.api ?? '';
 
+  const showApiPlayground = isApi && !mintConfig?.api?.hidePlayground;
+
   return (
     <div className="flex flex-row pt-9 gap-12 items-stretch">
       <div
@@ -104,7 +106,7 @@ export function MDXContentController({
             section={getSectionTitle(currentPath, mintConfig?.navigation ?? [])}
           />
         )}
-        {isApi ? (
+        {showApiPlayground && (
           <ApiPlayground
             api={api}
             paramGroups={paramGroups}
@@ -112,7 +114,7 @@ export function MDXContentController({
             onInputDataChange={setApiPlaygroundInputs}
             onApiBaseIndexChange={setApiBaseIndex}
           />
-        ) : null}
+        )}
 
         {/* The MDXProvider here renders the MDX for the page */}
         <div className="relative z-20 prose prose-slate mt-8 dark:prose-dark">

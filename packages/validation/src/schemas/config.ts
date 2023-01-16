@@ -47,13 +47,21 @@ const apiSchema = z
         })
         .strict("api.auth can only contain method, name, and inputPrefix.")
         .optional(),
+      hidePlayground: z
+        .boolean({
+          invalid_type_error:
+            "hidePlayground must be a boolean. Try writing true or false without the quotes.",
+        })
+        .optional(),
     },
     {
       invalid_type_error:
-        "api must be an object. The object can have baseUrl and auth as properties.",
+        "api must be an object. The object can have baseUrl, auth, and hidePlayground as properties.",
     }
   )
-  .strict("api can only contain baseUrl and auth as properties.");
+  .strict(
+    "api can only contain baseUrl, auth, and hidePlayground as properties."
+  );
 
 const modeToggleSchema = z.object({
   default: z.string().optional(),

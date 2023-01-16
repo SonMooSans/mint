@@ -161,7 +161,7 @@ Example: `mintlify`
 </ResponseField>
 
 <ResponseField name="api" type="API">
-  Configuration for API settings. Learn more about API pages at [API Components](/api-components/overview).
+  Configuration for API settings. Learn more about API pages at [API Components](/api-components/playground).
   <Expandable title="API">
     <ResponseField name="baseUrl" type="string">
       The base url for all API endpoints. If `baseUrl` is an array, it will enable for multiple base url
@@ -184,6 +184,10 @@ Example: `mintlify`
         E.g. If an `inputPrefix` of `AuthKey` would inherit the default input result of the authentication field as `AuthKey`.
         </ResponseField>
       </Expandable>
+    </ResponseField>
+
+    <ResponseField name="hidePlayground" type="boolean">
+      If `hidePlayground` is `true`, all API playgrounds will be hidden.
     </ResponseField>
 
   </Expandable>
@@ -274,13 +278,9 @@ Click on the following dropdown to view a sample configuration file
     {
       "group": "API Components",
       "pages": [
-        "api-components/overview",
-        "api-components/setup",
-        "api-components/param",
+        "api-components/configuration",
         "api-components/response",
-        "api-components/expandable",
-        "api-components/examples",
-        "api-components/openapi"
+        "api-components/examples"
       ]
     },
     {

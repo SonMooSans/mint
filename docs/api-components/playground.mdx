@@ -1,0 +1,37 @@
+---
+title: "Playground"
+description: "Enable users to interact with your API"
+api: "GET https://server.mintlify.com/api/v1/demo"
+hideApiMarker: true
+---
+
+<ParamField query="message" type="string" required>
+  The message to be used in the query
+</ParamField>
+
+<ResponseExample>
+  ```json Example Response
+  {
+    "success": true,
+    "message": "Hello world"
+  }
+  ```
+</ResponseExample>
+
+## Introduction
+
+The API playground is an interactive environment to make requests and preview an API endpoint.
+
+To create an API page, you must set an `api` or `openapi` property in the page metadata. See [Configuration](api-components/configuration) for more details.
+
+###
+
+## Hiding API playgrounds
+
+You can hide API playgrounds site-wide by setting `hidePlayground` in your `mint.json` file.
+
+```json mint.json
+"api": {
+    "hidePlayground": true
+}
+```

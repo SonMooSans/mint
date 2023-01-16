@@ -91,7 +91,8 @@
     {
       "group": "API Components",
       "pages": [
-        "api-components/overview",
+        "api-components/playground",
+        "api-components/configuration",
         "api-components/param",
         "api-components/response",
         "api-components/expandable",

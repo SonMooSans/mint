@@ -54,6 +54,7 @@ export type ApiConfig = {
     name?: string;
     inputPrefix?: string;
   };
+  hidePlayground?: boolean;
 };
 
 export type Config = {
