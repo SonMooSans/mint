@@ -1,4 +1,5 @@
 import Chalk from "chalk";
+import child_process from "child_process";
 import open from "open";
 import fse, { pathExists } from "fs-extra";
 import inquirer from "inquirer";
@@ -168,9 +169,22 @@ const run = (port: string) => {
 
   // next-remote-watch can only receive ports as env variables
   // https://github.com/hashicorp/next-remote-watch/issues/23
-  shell.exec(`PORT=${port} npm run dev-watch`, { async: true });
-
-  open(`http://localhost:${port}`);
+  const mintlifyDevProcess = child_process.spawn("npm run dev-watch", {
+    env: {
+      ...process.env,
+      PORT: port,
+    },
+    cwd: CLIENT_PATH,
+    stdio: "pipe",
+    shell: true,
+  });
+  mintlifyDevProcess.stdout.on("data", (data) => {
+    const output = data.toString();
+    console.log(output);
+    if (output.startsWith("> Ready on http://localhost:")) {
+      open(`http://localhost:${port}`);
+    }
+  });
   listener();
 };
 
