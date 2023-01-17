@@ -185,6 +185,12 @@ const run = (port: string) => {
       open(`http://localhost:${port}`);
     }
   });
+  const onExit = () => {
+    mintlifyDevProcess.kill("SIGINT");
+    process.exit(0);
+  };
+  process.on("SIGINT", onExit);
+  process.on("SIGTERM", onExit);
   listener();
 };
 
